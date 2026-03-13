@@ -1,0 +1,7 @@
+[
+  {
+    "install": "git submodule update --init --recursive && pip install -e '.[all]'",
+    "start": "pytest",
+    "resourceSize": "medium"
+  }
+]
