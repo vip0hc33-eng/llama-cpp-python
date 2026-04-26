@@ -198,9 +198,10 @@ class LlamaProxy:
             assert (
                 settings.hf_tokenizer_config_path is not None
             ), "hf_tokenizer_config_path must be set for hf-tokenizer-config"
-            chat_handler = llama_cpp.llama_chat_format.hf_tokenizer_config_to_chat_completion_handler(
-                json.load(open(settings.hf_tokenizer_config_path))
-            )
+            with open(settings.hf_tokenizer_config_path) as f:
+                chat_handler = llama_cpp.llama_chat_format.hf_tokenizer_config_to_chat_completion_handler(
+                    json.load(f)
+                )
 
         tokenizer: Optional[llama_cpp.BaseLlamaTokenizer] = None
         if settings.hf_pretrained_model_name_or_path is not None:
