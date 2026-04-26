@@ -216,6 +216,10 @@ class ServerSettings(BaseSettings):
         default=None,
         description="API key for authentication. If set all requests need to be authenticated.",
     )
+    cors_allow_origins: List[str] = Field(
+        default=["*"],
+        description="Allowed CORS origins. Use ['*'] to allow all origins (not recommended for production).",
+    )
     interrupt_requests: bool = Field(
         default=True,
         description="Whether to interrupt requests when a new request is received.",
